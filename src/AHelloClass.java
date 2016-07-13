@@ -9,8 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
-@WebServlet(name = "AWeirdClass", urlPatterns = {"/hello"})
-public class AWeirdClass extends HttpServlet{
+
+// simulate the network going down, on both ends.
+// ex: in the code for the server (java exit method), instead of replying.
+// ex: on the client, send the request and exit. System.exit.
+@WebServlet(name = "AHelloClass", urlPatterns = {"/hello"})
+public class AHelloClass extends HttpServlet{
         //When server responds to user
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
