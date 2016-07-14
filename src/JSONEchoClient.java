@@ -29,11 +29,14 @@ public class JSONEchoClient {
                 request.put("message", messageForServlet);
 
                 outToServer.writeObject(request);
+                // Simulate the client sending the request and shutting down, or the client network side dropping.
+                // "Process finished with exit code -1", doesn't look like the server got anything, and process exits.
+//                System.exit(-1);
 
                 JSONInputStream inFromServer = new JSONInputStream(connection.getInputStream());
                 HashMap<String, Object> response = (HashMap<String, Object>) inFromServer.readObject();
                 if (response.get("status").equals("To Client")) {
-                    System.out.println("Sent request: " + request + "and got response " + response);
+                    System.out.println("Sent request: " + request + " and got response " + response);
                 } else {
                     System.out.println("Oops. got " + response);
                 }

@@ -33,6 +33,9 @@ public class AHelloClass extends HttpServlet{
             } catch (ParseException e) {
                 e.printStackTrace();
             }
+//            SocketException, and the server simulates disconnecting.
+//            System.exit(-1);
+//            System.out.println("Did it get this far?");
 
             System.out.println("Data Received:" + dataMap + " from Bro. Barney's client");
             //overwrites the value "To Servlet" from the user and returns To Client
